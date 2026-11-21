@@ -393,6 +393,61 @@
   /* Imagens */
   .md-content img { max-width:100%; border-radius:8px; margin:16px 0; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
 
+
+  /* Tabs */
+  .tab-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:28px; padding-bottom:14px; border-bottom:1px solid var(--ct-border); }
+  .tab-btn { font-family:'Space Mono',monospace; font-size:11px; padding:6px 12px; border:1px solid var(--ct-border); background:var(--ct-surface); color:var(--ct-muted); border-radius:4px; cursor:pointer; transition:all .15s; }
+  .tab-btn:hover { border-color:var(--ct-accent); color:var(--ct-accent); }
+  .tab-btn.active { background:var(--ct-accent); border-color:var(--ct-accent); color:#fff; }
+
+  /* Answer reveal blocks in questions/flashcards */
+  .md-content details { background:var(--ct-surface); border:1px solid var(--ct-border); border-radius:8px; padding:12px 18px; margin:14px 0 22px; }
+  .md-content details[open] { border-color:var(--ct-accent); }
+  .md-content summary { cursor:pointer; font-weight:600; color:var(--ct-accent); }
+  .md-content details > :not(summary) { margin-top:12px; }
+
+
+  /* Exam-style quiz */
+  .quiz { max-width:740px; }
+  .quiz-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; font-family:'Space Mono',monospace; font-size:11px; color:var(--ct-dim); }
+  .quiz-mode button { font-family:'Space Mono',monospace; font-size:10px; padding:4px 9px; border:1px solid var(--ct-border); background:transparent; color:var(--ct-dim); border-radius:3px; cursor:pointer; }
+  .quiz-mode button.active { background:var(--ct-text); color:#fff; border-color:var(--ct-text); }
+  .quiz-bar { height:4px; background:var(--ct-border); border-radius:2px; overflow:hidden; margin-bottom:18px; }
+  .quiz-bar > div { height:100%; background:var(--ct-accent); transition:width .3s; }
+  .quiz-nav { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:24px; }
+  .qdot { width:26px; height:26px; font-family:'Space Mono',monospace; font-size:10px; border:1px solid var(--ct-border); background:var(--ct-surface); color:var(--ct-muted); border-radius:4px; cursor:pointer; }
+  .qdot.current { border-color:var(--ct-accent); color:var(--ct-accent); font-weight:700; }
+  .qdot.right { background:#e3f4e9; border-color:#7cc596; color:var(--ct-green); }
+  .qdot.wrong { background:#fbe6e3; border-color:#e49a92; color:#b3261e; }
+  .quiz-meta { font-family:'Space Mono',monospace; font-size:11px; color:var(--ct-dim); margin-bottom:10px; }
+  .quiz-q { font-size:17px; line-height:1.7; font-weight:500; margin-bottom:20px; color:var(--ct-text); }
+  .quiz-hint { font-size:12px; color:var(--ct-accent); margin:-8px 0 14px; font-family:'Space Mono',monospace; }
+  .opt { display:flex; gap:12px; align-items:flex-start; width:100%; text-align:left; background:var(--ct-surface); border:1.5px solid var(--ct-border); border-radius:8px; padding:13px 16px; margin-bottom:10px; cursor:pointer; font:inherit; font-size:15px; line-height:1.55; color:var(--ct-text); transition:border-color .15s, background .15s; }
+  .opt:hover:not(:disabled) { border-color:var(--ct-accent); }
+  .opt .mark { flex-shrink:0; width:22px; height:22px; border:1.5px solid #b9b2a6; border-radius:50%; margin-top:1px; display:flex; align-items:center; justify-content:center; font-size:11px; font-family:'Space Mono',monospace; font-weight:700; color:var(--ct-muted); }
+  .opt.multi .mark { border-radius:4px; }
+  .opt.selected { border-color:var(--ct-accent); background:#fdf5ec; }
+  .opt.selected .mark { background:var(--ct-accent); border-color:var(--ct-accent); color:#fff; }
+  .opt.correct { border-color:#3f9d5f; background:#e9f6ee; }
+  .opt.correct .mark { background:#3f9d5f; border-color:#3f9d5f; color:#fff; }
+  .opt.incorrect { border-color:#d2554b; background:#fcebe9; }
+  .opt.incorrect .mark { background:#d2554b; border-color:#d2554b; color:#fff; }
+  .opt:disabled { cursor:default; }
+  .opt p { margin:0; }
+  .quiz-actions { display:flex; gap:10px; margin-top:20px; }
+  .qbtn { font-family:'Space Mono',monospace; font-size:12px; padding:9px 18px; border-radius:5px; cursor:pointer; border:1px solid var(--ct-accent); background:var(--ct-accent); color:#fff; }
+  .qbtn.secondary { background:transparent; color:var(--ct-accent); }
+  .qbtn:disabled { opacity:.4; cursor:not-allowed; }
+  .quiz-feedback { margin-top:22px; padding:16px 20px; border-radius:8px; font-size:14.5px; line-height:1.7; }
+  .quiz-feedback.ok { background:#e9f6ee; border:1px solid #a8dbb9; }
+  .quiz-feedback.no { background:#fcebe9; border:1px solid #f0b6b0; }
+  .quiz-feedback .verdict { font-weight:700; margin-bottom:8px; }
+  .quiz-feedback p { margin-bottom:10px; }
+  .quiz-result { text-align:center; padding:30px 10px; }
+  .quiz-result .score { font-family:'Syne',sans-serif; font-size:56px; font-weight:800; color:var(--ct-accent); }
+  .quiz-result .sub { color:var(--ct-muted); margin:6px 0 24px; }
+  .quiz-result .actions { display:flex; gap:10px; justify-content:center; }
+
   /* ══ TOAST ════════════════════════════════════════════════════ */
   .toast {
     position:fixed; bottom:24px; right:24px;
@@ -623,33 +678,211 @@ function filterModules() {
   buildSidebar(getCurrentFiltered());
 }
 
+const TABS = [
+  { key:'README.md',       label:'Theory' },
+  { key:'questoes.md',     label:'Questions' },
+  { key:'flashcards.md',   label:'Flashcards' },
+  { key:'cheatsheet.md',   label:'Cheatsheet' },
+  { key:'lab.md',          label:'Lab' },
+  { key:'casos-de-uso.md', label:'Use Cases' },
+  { key:'links.md',        label:'Links' },
+];
+const fileCache = {};
+let activeTab = null;
+
 function updateContentHeader() {
   if (!activeModule) return;
   const m = activeModule, done = isCompleted(m.num);
+  const path = activeTab ? `${modDir(m)}/${activeTab}` : m.file;
   document.getElementById('contentActions').innerHTML = `
     <button class="action-btn ${done?'done-btn':''}" onclick="toggleProgress('${m.num}',event)">${done?'✓ Completed':'○ Mark as Completed'}</button>
-    <a href="${GH}/${m.file}" target="_blank" class="action-btn">GitHub ↗</a>`;
+    <a href="${GH}/${path}" target="_blank" class="action-btn">GitHub ↗</a>`;
+}
+
+function modDir(m) { return m.file.split('/')[0]; }
+
+// Prefer the local copy (works on GitHub Pages or a local server); fall back to GitHub raw.
+async function fetchText(path) {
+  if (path in fileCache) return fileCache[path];
+  let res = null;
+  try { res = await fetch(encodeURI(path)); } catch { res = null; }
+  if (!res || !res.ok) { try { res = await fetch(`${BASE}/${path}`); } catch { res = null; } }
+  const txt = (res && res.ok) ? await res.text() : null;
+  fileCache[path] = txt;
+  return txt;
+}
+
+function renderTabs(avail) {
+  return `<div class="tab-row">` + avail.map(tb =>
+    `<button class="tab-btn ${tb.key===activeTab?'active':''}" onclick="showTab('${tb.key}')">${tb.label}</button>`).join('') + `</div>`;
+}
+
+
+// ---------- Exam-style quiz ----------
+let quizMode = true;           // Questions tab: true = exam mode, false = reading mode
+let quiz = null;               // { qs, idx, answers, num }
+
+function parseQuiz(txt) {
+  const blocks = txt.replace(/^\uFEFF/, '').split(/^## /m).slice(1);
+  const qs = [];
+  for (const blk of blocks) {
+    const nl = blk.indexOf('\n');
+    const title = blk.slice(0, nl).trim();
+    let body = blk.slice(nl + 1);
+    let details = '';
+    const dm = body.match(/<details>([\s\S]*?)<\/details>/);
+    if (dm) { details = dm[1]; body = body.replace(dm[0], ''); }
+    const stem = [], opts = [];
+    for (const line of body.split('\n')) {
+      const om = line.match(/^\s*(?:[-*]\s*)?\*{0,2}([A-E])[\).]\*{0,2}\s+(.+)$/);
+      if (om) opts.push({ letter: om[1], text: om[2].trim() });
+      else if (!opts.length && line.trim() && line.trim() !== '---') stem.push(line.trim());
+    }
+    const am = details.match(/(?:Correct answer|Answer)\W{0,6}([A-E](?:\s*(?:,|and|&)\s*[A-E])*)\b/i);
+    if (opts.length < 2 || !am) continue;
+    const correct = am[1].toUpperCase().match(/[A-E]/g);
+    let expl = details.replace(/<summary>[\s\S]*?<\/summary>/, '')
+      .replace(/^\s*\*{0,2}\s*(?:Correct answer|Answer)\W{0,6}[A-E][^\n]*\n?/im, '').trim();
+    qs.push({ title, stem: stem.join('\n\n'), opts, correct, expl });
+  }
+  return qs;
+}
+
+function quizHeader() {
+  return `<div class="quiz-top"><span id="quizCount"></span><span class="quiz-mode">
+    <button class="${quizMode?'active':''}" onclick="setQuizMode(true)">Exam mode</button>
+    <button class="${quizMode?'':'active'}" onclick="setQuizMode(false)">Reading mode</button></span></div>`;
+}
+function setQuizMode(on) { quizMode = on; showTab('questoes.md'); }
+
+const shuffleOpts = true;     // options are always shuffled each attempt
+
+// Return a copy of q with options in random order, letters reassigned,
+// and "Option X" references in the explanation remapped to the new letters.
+function shuffleQ(q) {
+  const keep = q.opts.some(o => /\b(all|none|both)\b.*\b(above|these)\b|^(all|none) of/i.test(o.text));
+  if (!shuffleOpts || keep) return q;
+  const arr = q.opts.slice();
+  for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; }
+  const map = {}, letters = 'ABCDE';
+  const opts = arr.map((o, i) => { map[o.letter] = letters[i]; return { letter: letters[i], text: o.text }; });
+  const re = (s) => s.replace(/\b(Options?|options?|alternatives?|Alternatives?|Answers?|answers?|Choices?|choices?)(\s+)([A-E](?:(?:,\s*|\s+and\s+|\s+or\s+|\/)[A-E])*)\b/g,
+    (m, w, sp, ls) => w + sp + ls.replace(/[A-E]/g, c => map[c] || c));
+  return { ...q, opts, correct: q.correct.map(c => map[c]).sort(), expl: re(q.expl) };
+}
+
+function startQuiz(qs0) {
+  const qs = qs0.map(shuffleQ);
+  quiz = { src: qs0, qs, idx: 0, num: activeModule.num, answers: qs.map(() => ({ picked: [], checked: false })) };
+  renderQuiz();
+}
+
+function renderQuiz() {
+  const q = quiz.qs[quiz.idx], a = quiz.answers[quiz.idx];
+  const total = quiz.qs.length, done = quiz.answers.filter(x => x.checked).length;
+  const multi = q.correct.length > 1;
+  const nav = quiz.qs.map((qq, i) => {
+    const ans = quiz.answers[i];
+    const cls = i === quiz.idx ? 'current' : (ans.checked ? (isRight(i) ? 'right' : 'wrong') : '');
+    return `<button class="qdot ${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+  }).join('');
+  const opts = q.opts.map(o => {
+    let cls = 'opt' + (multi ? ' multi' : '');
+    if (a.checked) {
+      if (q.correct.includes(o.letter)) cls += ' correct';
+      else if (a.picked.includes(o.letter)) cls += ' incorrect';
+    } else if (a.picked.includes(o.letter)) cls += ' selected';
+    return `<button class="${cls}" ${a.checked ? 'disabled' : ''} onclick="pick('${o.letter}')"><span class="mark">${o.letter}</span><span>${marked.parseInline(o.text)}</span></button>`;
+  }).join('');
+  let feedback = '';
+  if (a.checked) {
+    const ok = isRight(quiz.idx);
+    feedback = `<div class="quiz-feedback ${ok?'ok':'no'}"><div class="verdict">${ok ? '✓ Correct' : '✗ Incorrect — correct answer: ' + q.correct.join(', ')}</div>${q.expl ? marked.parse(q.expl) : ''}</div>`;
+  }
+  const last = quiz.idx === total - 1;
+  const body = document.getElementById('quizBody');
+  body.innerHTML = `
+    <div class="quiz-bar"><div style="width:${done/total*100}%"></div></div>
+    <div class="quiz-nav">${nav}</div>
+    <div class="quiz-meta">${q.title}</div>
+    <div class="quiz-q">${marked.parse(q.stem)}</div>
+    ${multi ? `<div class="quiz-hint">Select ${q.correct.length} answers</div>` : ''}
+    ${opts}
+    <div class="quiz-actions">
+      ${a.checked ? '' : `<button class="qbtn" ${a.picked.length ? '' : 'disabled'} onclick="checkQ()">Check answer</button>`}
+      ${idxPrev()} 
+      ${a.checked || last ? `<button class="qbtn ${a.checked ? '' : 'secondary'}" onclick="${last ? 'finishQuiz()' : 'gotoQ(' + (quiz.idx + 1) + ')'}">${last ? 'Finish' : 'Next →'}</button>` : ''}
+    </div>${feedback}`;
+  document.getElementById('quizCount').textContent = `Question ${quiz.idx + 1} of ${total} · ${done} answered`;
+}
+function idxPrev() { return quiz.idx > 0 ? `<button class="qbtn secondary" onclick="gotoQ(${quiz.idx - 1})">← Back</button>` : ''; }
+function isRight(i) {
+  const q = quiz.qs[i], p = quiz.answers[i].picked;
+  return p.length === q.correct.length && q.correct.every(c => p.includes(c));
+}
+function gotoQ(i) { quiz.idx = i; renderQuiz(); }
+function pick(letter) {
+  const q = quiz.qs[quiz.idx], a = quiz.answers[quiz.idx];
+  if (a.checked) return;
+  if (q.correct.length > 1) {
+    a.picked = a.picked.includes(letter) ? a.picked.filter(x => x !== letter) : [...a.picked, letter];
+  } else a.picked = [letter];
+  renderQuiz();
+}
+function checkQ() { quiz.answers[quiz.idx].checked = true; renderQuiz(); }
+function finishQuiz() {
+  const total = quiz.qs.length;
+  const score = quiz.qs.reduce((n, _, i) => n + (quiz.answers[i].checked && isRight(i) ? 1 : 0), 0);
+  const pct = Math.round(score / total * 100);
+  let best = pct;
+  try { best = Math.max(pct, +(localStorage.getItem('aws-saa-quiz-' + quiz.num) || 0)); localStorage.setItem('aws-saa-quiz-' + quiz.num, best); } catch {}
+  const unanswered = quiz.answers.filter(x => !x.checked).length;
+  document.getElementById('quizBody').innerHTML = `<div class="quiz-result">
+    <div class="score">${pct}%</div>
+    <div class="sub">${score} of ${total} correct${unanswered ? ` · ${unanswered} unanswered` : ''} · best ${best}% · pass mark 72%</div>
+    <div class="actions"><button class="qbtn" onclick="startQuiz(quiz.src)">Retake</button>
+    <button class="qbtn secondary" onclick="gotoQ(0)">Review answers</button></div></div>`;
+  document.getElementById('quizCount').textContent = 'Results';
+}
+
+let availTabs = [];
+async function showTab(key) {
+  activeTab = key;
+  updateContentHeader();
+  const body = document.getElementById('contentBody');
+  const txt = await fetchText(`${modDir(activeModule)}/${key}`);
+  const banner = isCompleted(activeModule.num) ? `<div class="complete-banner">✅ &nbsp;Module marked as completed. Nice work!</div>` : '';
+  if (txt === null) {
+    body.innerHTML = renderTabs(availTabs) + `<div class="error-state"><div class="err-code">:(</div><div>Could not load the content.</div></div>`;
+    return;
+  }
+  if (key === 'questoes.md' && quizMode) {
+    const qs = parseQuiz(txt);
+    if (qs.length) {
+      body.innerHTML = renderTabs(availTabs) + `<div class="quiz">${quizHeader()}<div id="quizBody"></div></div>`;
+      startQuiz(qs); body.scrollTop = 0; return;
+    }
+  }
+  const modeBar = key === 'questoes.md' ? `<div class="quiz">${quizHeader()}</div>` : '';
+  // Strip a leading BOM and render markdown (raw <details> blocks pass through).
+  body.innerHTML = renderTabs(availTabs) + modeBar + banner + `<div class="md-content">${marked.parse(txt.replace(/^\uFEFF/, ''))}</div>`;
+  body.scrollTop = 0;
 }
 
 async function loadModule(mod) {
   activeNum = mod.num; activeModule = mod;
   buildSidebar(getCurrentFiltered());
   document.getElementById('breadcrumbCurrent').textContent = `${mod.num} · ${mod.name}`;
+  const own = mod.file.split('/')[1];
+  activeTab = own;
   updateContentHeader();
   document.getElementById('contentBody').innerHTML = `<div class="loading"><div class="spinner"></div><div class="loading-text">Loading module ${mod.num}…</div></div>`;
-  try {
-    // Prefer the local copy (works on GitHub Pages or a local server); fall back to GitHub raw.
-    let res = null;
-    try { res = await fetch(encodeURI(mod.file)); } catch { res = null; }
-    if (!res || !res.ok) res = await fetch(`${BASE}/${mod.file}`);
-    if (!res.ok) throw new Error(res.status);
-    const html = marked.parse(await res.text());
-    const banner = isCompleted(mod.num) ? `<div class="complete-banner">✅ &nbsp;Module marked as completed. Nice work!</div>` : '';
-    document.getElementById('contentBody').innerHTML = banner + `<div class="md-content">${html}</div>`;
-    document.getElementById('contentBody').scrollTop = 0;
-  } catch {
-    document.getElementById('contentBody').innerHTML = `<div class="error-state"><div class="err-code">:(</div><div>Could not load the content.</div><div style="margin-top:12px"><a href="${GH}/${mod.file}" target="_blank" class="action-btn">Open on GitHub ↗</a></div></div>`;
-  }
+  const dir = modDir(mod);
+  const found = await Promise.all(TABS.map(async tb => (await fetchText(`${dir}/${tb.key}`)) !== null ? tb : null));
+  if (activeNum !== mod.num) return; // user switched modules meanwhile
+  availTabs = found.filter(Boolean);
+  if (!availTabs.some(tb => tb.key === own)) availTabs.unshift({ key: own, label: own === 'lab.md' ? 'Lab' : 'Theory' });
+  await showTab(own);
 }
 
 let toastTimer;
