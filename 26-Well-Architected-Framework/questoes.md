@@ -139,6 +139,146 @@ The question states this requirement explicitly, so an option that ignores it fa
 
 </details>
 
+## Question 6
+
+A startup runs its web application and a MySQL database on a single EC2 instance in one Availability Zone. After an AZ disruption, the application was down for four hours. The business now requires the application to survive the loss of a single AZ with minimal downtime. Which design change best follows the Reliability pillar?
+
+A) Move to a larger instance type with more CPU and memory
+B) Take nightly EBS snapshots and copy them to Amazon S3
+C) Put the instance behind an Elastic IP address and restart it manually after failures
+D) Run the application in an Auto Scaling group across at least two AZs behind an Application Load Balancer, and move the database to Amazon RDS Multi-AZ
+
+<details>
+<summary><strong>Show answer</strong></summary>
+
+✅ **Correct answer:** D
+
+**Explanation:**
+Removing single points of failure by distributing the application tier across AZs and using a Multi-AZ database with automatic failover lets the workload survive an AZ loss with little downtime.
+
+**Why option A is wrong:**
+A larger instance scales vertically but remains a single point of failure in one AZ.
+
+**Why option B is wrong:**
+Backups help recovery but restoring them takes time, so they do not provide fast failover.
+
+**Why option C is wrong:**
+An Elastic IP and manual restarts keep the same single instance in a single AZ, and manual recovery is slow.
+
+</details>
+
+## Question 7
+
+A company runs a steady baseline of 40 EC2 instances 24/7 for a core application. Traffic spikes unpredictably to about 100 instances for a few hours per week. The architect must reduce costs without hurting availability. Which approach follows the Cost Optimization pillar?
+
+A) Cover the baseline with a Compute Savings Plan and use Auto Scaling with On-Demand (or Spot where interruption is tolerable) for the spikes
+B) Run all 100 instances on Spot Instances all the time
+C) Buy 100 three-year Reserved Instances to cover the peak
+D) Keep all workloads On-Demand for flexibility
+
+<details>
+<summary><strong>Show answer</strong></summary>
+
+✅ **Correct answer:** A
+
+**Explanation:**
+Commitments give large discounts for the predictable baseline, while elastic capacity matches variable demand and avoids paying for unused peak capacity.
+
+**Why option B is wrong:**
+Spot can be interrupted, which puts the core, always-on application at risk.
+
+**Why option C is wrong:**
+Committing to peak capacity means paying for 60 unused instances most of the time.
+
+**Why option D is wrong:**
+On-Demand for a steady baseline is the most expensive way to run it.
+
+</details>
+
+## Question 8
+
+An application on Amazon EC2 needs to read objects from an S3 bucket. A developer proposes creating an IAM user and storing its access keys in the application's configuration file. Which alternative best aligns with the Security pillar?
+
+A) Store the access keys in the EC2 user data script
+B) Make the bucket public and restrict it by IP address
+C) Assign an IAM role to the instance through an instance profile with least-privilege S3 permissions
+D) Share one IAM user's keys among all instances, and rotate them yearly
+
+<details>
+<summary><strong>Show answer</strong></summary>
+
+✅ **Correct answer:** C
+
+**Explanation:**
+IAM roles provide temporary credentials that are rotated automatically, so there are no long-term secrets to leak, and permissions can be limited to the needed bucket and actions.
+
+**Why option A is wrong:**
+User data is readable from the instance metadata and still uses long-term keys.
+
+**Why option B is wrong:**
+A public bucket exposes data broadly, and IP restrictions are a weak control.
+
+**Why option D is wrong:**
+Shared, rarely rotated long-term keys increase the blast radius and violate security best practices.
+
+</details>
+
+## Question 9
+
+A team deploys changes by manually clicking through the AWS console. Environments have drifted apart, and a recent change caused an outage that took hours to roll back. Which practice from the Operational Excellence pillar would help most?
+
+A) Keep a detailed runbook in a wiki listing all console steps
+B) Define infrastructure with AWS CloudFormation templates in version control and deploy through a CI/CD pipeline with small, reversible changes
+C) Allow only one senior engineer to make changes in the console
+D) Take screenshots of the console settings before each change
+
+<details>
+<summary><strong>Show answer</strong></summary>
+
+✅ **Correct answer:** B
+
+**Explanation:**
+Infrastructure as code with automated pipelines makes changes repeatable, reviewable and easy to roll back, which reduces drift and human error.
+
+**Why option A is wrong:**
+Documentation still depends on manual steps that people can get wrong, and the runbook can drift from reality.
+
+**Why option C is wrong:**
+This creates a bottleneck and a single person who may still make manual errors without improving repeatability.
+
+**Why option D is wrong:**
+Screenshots are not a reliable rollback mechanism, and they do not prevent drift.
+
+</details>
+
+## Question 10
+
+A company wants to improve the sustainability of its workloads on AWS. Utilization is low because the fleet is sized for a peak that happens once a month. Which TWO actions align with the Sustainability pillar?
+
+A) Keep provisioning capacity for peak load 24/7 to avoid any risk
+B) Use Auto Scaling and right-sizing to match capacity to actual demand
+C) Replicate all data to every AWS Region
+D) Move suitable workloads to AWS Graviton-based instances, which are more energy efficient
+E) Disable S3 lifecycle policies and keep all data in the Standard storage class indefinitely
+
+<details>
+<summary><strong>Show answer</strong></summary>
+
+✅ **Correct answer:** B, D
+
+**Explanation:**
+Matching resources to demand reduces idle capacity and energy use, and more efficient processors lower energy consumption for the same work.
+
+**Why option A is wrong:**
+Permanently provisioning for peak keeps idle resources running, which wastes energy.
+
+**Why option C is wrong:**
+Replicating everywhere multiplies storage and increases the footprint without a requirement.
+
+**Why option E is wrong:**
+Keeping rarely used data in Standard indefinitely wastes storage resources, whereas lifecycle policies reduce them.
+
+</details>
 
 ---
 
