@@ -260,17 +260,17 @@ In addition to GitHub Pages, the repository includes a single-file study portal 
 | [03 - IAM and Security (Labs)](./03-IAM-e-Seguranca-Labs/lab.md) | Week 1 | No | Yes | No | No |
 | [04 - EC2 Compute](./04-Computacao-EC2/README.md) | Week 2 | Yes | Yes | Yes | Yes |
 | [05 - High Availability and Scalability](./05-Alta-Disponibilidade-e-Escalabilidade/README.md) | Week 2 | Yes | Yes | Yes | Yes |
-| [06 - Amazon S3 and Storage](./06-Amazon-S3-e-Armazenamento/README.md) | Week 3 | Yes | No | Yes | Yes |
+| [06 - Amazon S3 and Storage](./06-Amazon-S3-e-Armazenamento/README.md) | Week 3 | Yes | Yes | Yes | Yes |
 | [07 - Advanced S3 (Labs)](./07-S3-Avancado-Labs/lab.md) | Week 3 | No | Yes | No | No |
-| [08 - VPC and Networking](./08-VPC-e-Redes/README.md) | Week 3 | Yes | No | Yes | Yes |
+| [08 - VPC and Networking](./08-VPC-e-Redes/README.md) | Week 3 | Yes | Yes | Yes | Yes |
 | [09 - VPC and Networking (Labs)](./09-VPC-e-Redes-Labs/lab.md) | Week 3 | No | Yes | No | No |
-| [10 - Databases](./10-Banco-de-Dados/README.md) | Week 4 | Yes | No | Yes | Yes |
+| [10 - Databases](./10-Banco-de-Dados/README.md) | Week 4 | Yes | Yes | Yes | Yes |
 | [11 - RDS and Relational Databases (Labs)](./11-RDS-e-Bancos-Relacionais-Labs/lab.md) | Week 4 | No | Yes | No | No |
 | [12 - DynamoDB (Labs)](./12-DynamoDB/lab.md) | Week 4 | No | Yes | No | No |
-| [13 - DNS, Route 53, and CloudFront](./13-DNS-Route53-e-CloudFront/README.md) | Week 4 | Yes | No | Yes | Yes |
-| [14 - Decoupling: SQS, SNS, EventBridge](./14-Desacoplamento-SQS-SNS-EventBridge/README.md) | Week 5 | Yes | No | Yes | Yes |
+| [13 - DNS, Route 53, and CloudFront](./13-DNS-Route53-e-CloudFront/README.md) | Week 4 | Yes | Yes | Yes | Yes |
+| [14 - Decoupling: SQS, SNS, EventBridge](./14-Desacoplamento-SQS-SNS-EventBridge/README.md) | Week 5 | Yes | Yes | Yes | Yes |
 | [15 - SQS and SNS (Labs)](./15-SQS-SNS-Mensageria-Labs/lab.md) | Week 5 | No | Yes | No | No |
-| [16 - Containers: ECS, EKS, Fargate](./16-Containers-ECS-EKS-Fargate/README.md) | Week 5 | Yes | No | Yes | Yes |
+| [16 - Containers: ECS, EKS, Fargate](./16-Containers-ECS-EKS-Fargate/README.md) | Week 5 | Yes | Yes | Yes | Yes |
 | [17 - Serverless: Lambda and API Gateway](./17-Serverless-Lambda-API-Gateway/README.md) | Week 6 | Yes | Yes | Yes | Yes |
 | [18 - Data and Analytics](./18-Dados-e-Analytics/README.md) | Week 6 | Yes | Yes | Yes | Yes |
 | [19 - Machine Learning and AI](./19-Machine-Learning-e-IA/README.md) | Week 7 | Yes | Yes | Yes | Yes |
