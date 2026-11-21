@@ -449,6 +449,36 @@
   .quiz-result .sub { color:var(--ct-muted); margin:6px 0 24px; }
   .quiz-result .actions { display:flex; gap:10px; justify-content:center; }
 
+
+  /* Flashcards */
+  .fc { max-width:680px; }
+  .fc-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; font-family:'Space Mono',monospace; font-size:11px; color:var(--ct-dim); }
+  .fc-top .quiz-mode button { font-family:'Space Mono',monospace; font-size:10px; padding:4px 9px; border:1px solid var(--ct-border); background:transparent; color:var(--ct-dim); border-radius:3px; cursor:pointer; }
+  .fc-top .quiz-mode button.active { background:var(--ct-text); color:#fff; border-color:var(--ct-text); }
+  .fc-scene { perspective:1400px; margin:26px 0 22px; cursor:pointer; user-select:none; }
+  .fc-card { display:grid; position:relative; transform-style:preserve-3d; transition:transform .55s cubic-bezier(.2,.7,.2,1); min-height:300px; }
+  .fc-card.flipped { transform:rotateY(180deg); }
+  .fc-face { grid-area:1/1; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:16px; padding:36px 40px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; box-shadow:0 10px 30px rgba(60,40,10,.12), 0 2px 6px rgba(0,0,0,.06); }
+  .fc-front { background:var(--ct-surface); border:1px solid var(--ct-border); }
+  .fc-back { background:#fff7ec; border:1.5px solid var(--ct-accent); transform:rotateY(180deg); }
+  .fc-tag { position:absolute; top:16px; left:20px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--ct-dim); }
+  .fc-back .fc-tag { color:var(--ct-accent); }
+  .fc-text { font-size:21px; line-height:1.6; font-weight:500; color:var(--ct-text); }
+  .fc-back .fc-text { font-size:17px; font-weight:400; text-align:left; width:100%; }
+  .fc-text p { margin:0 0 10px; }
+  .fc-hint { position:absolute; bottom:14px; font-family:'Space Mono',monospace; font-size:10px; color:var(--ct-dim); }
+  .fc-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .fc-btn { font-family:'Space Mono',monospace; font-size:12px; padding:10px 20px; border-radius:6px; cursor:pointer; border:1.5px solid var(--ct-border); background:var(--ct-surface); color:var(--ct-muted); }
+  .fc-btn:hover { border-color:var(--ct-accent); color:var(--ct-accent); }
+  .fc-btn.again { border-color:#e0a39d; color:#b3261e; }
+  .fc-btn.again:hover { background:#fcebe9; }
+  .fc-btn.know { border-color:#8cc9a2; color:var(--ct-green); }
+  .fc-btn.know:hover { background:#e9f6ee; }
+  .fc-btn:disabled { opacity:.35; cursor:not-allowed; }
+  .fc-keys { text-align:center; margin-top:18px; font-family:'Space Mono',monospace; font-size:10px; color:var(--ct-dim); }
+  .fc-done { text-align:center; padding:50px 10px; }
+  .fc-done .big { font-family:'Syne',sans-serif; font-size:40px; font-weight:800; color:var(--ct-accent); }
+
   /* ══ TOAST ════════════════════════════════════════════════════ */
   .toast {
     position:fixed; bottom:24px; right:24px;
@@ -860,6 +890,80 @@ function finishQuiz() {
   document.getElementById('quizCount').textContent = 'Results';
 }
 
+
+// ---------- Flashcards ----------
+let flashMode = true;
+let deck = null;   // { cards, queue, known, flipped, total }
+
+function parseCards(txt) {
+  const cards = [];
+  for (const blk of txt.replace(/^﻿/, '').split(/^## /m).slice(1)) {
+    const body = blk.slice(blk.indexOf('\n') + 1);
+    const dm = body.match(/<details>([\s\S]*?)<\/details>/);
+    const qm = body.match(/\*\*(?:Question|Pergunta):\*\*\s*([\s\S]*?)(?=\n\s*\n|<details>|$)/);
+    if (!qm) continue;
+    let ans = '';
+    if (dm) ans = dm[1].replace(/<summary>[\s\S]*?<\/summary>/, '').replace(/^\s*\*\*(?:Answer|Resposta):\*\*\s*/m, '').trim();
+    else ans = body.slice(body.indexOf(qm[0]) + qm[0].length).trim();
+    if (qm[1].trim() && ans) cards.push({ q: qm[1].trim(), a: ans });
+  }
+  return cards;
+}
+function setFlashMode(on) { flashMode = on; showTab('flashcards.md'); }
+
+function startDeck(cards, shuffle) {
+  const order = cards.map((_, i) => i);
+  if (shuffle) for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+  deck = { cards, queue: order, known: 0, flipped: false, total: cards.length };
+  renderDeck();
+}
+function renderDeck() {
+  const el = document.getElementById('fcBody');
+  if (!el) return;
+  if (!deck.queue.length) {
+    el.innerHTML = `<div class="fc-done"><div class="big">Deck complete 🎉</div>
+      <p style="color:var(--ct-muted);margin:10px 0 24px">You marked all ${deck.total} cards as known.</p>
+      <div class="fc-actions"><button class="fc-btn know" onclick="startDeck(deck.cards,true)">Study again</button></div></div>`;
+    document.getElementById('fcCount').textContent = `${deck.total} of ${deck.total} known`;
+    return;
+  }
+  const c = deck.cards[deck.queue[0]];
+  el.innerHTML = `
+    <div class="fc-scene" onclick="flipCard()">
+      <div class="fc-card ${deck.flipped ? 'flipped' : ''}" id="fcCard">
+        <div class="fc-face fc-front"><span class="fc-tag">Question</span><div class="fc-text">${marked.parse(c.q)}</div><span class="fc-hint">click or press space to flip</span></div>
+        <div class="fc-face fc-back"><span class="fc-tag">Answer</span><div class="fc-text">${marked.parse(c.a)}</div></div>
+      </div>
+    </div>
+    <div class="fc-actions">
+      <button class="fc-btn again" onclick="rateCard(false)">✗ Review again</button>
+      <button class="fc-btn" onclick="flipCard()">⟲ Flip</button>
+      <button class="fc-btn know" onclick="rateCard(true)">✓ I know it</button>
+    </div>
+    <div class="fc-keys">Space = flip · ← = review again · → = I know it</div>`;
+  document.getElementById('fcCount').textContent = `${deck.known} of ${deck.total} known · ${deck.queue.length} left`;
+}
+function flipCard() {
+  if (!deck || !deck.queue.length) return;
+  deck.flipped = !deck.flipped;
+  const c = document.getElementById('fcCard');
+  if (c) c.classList.toggle('flipped', deck.flipped);
+}
+function rateCard(known) {
+  if (!deck || !deck.queue.length) return;
+  const i = deck.queue.shift();
+  if (known) deck.known++;
+  else deck.queue.splice(Math.floor(Math.random() * (deck.queue.length + 1)), 0, i);   // missed cards come back at a random spot
+  deck.flipped = false;
+  renderDeck();
+}
+document.addEventListener('keydown', e => {
+  if (!deck || !document.getElementById('fcCard') || /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+  if (e.code === 'Space') { e.preventDefault(); flipCard(); }
+  else if (e.code === 'ArrowLeft') rateCard(false);
+  else if (e.code === 'ArrowRight') rateCard(true);
+});
+
 let availTabs = [];
 async function showTab(key) {
   activeTab = key;
@@ -878,7 +982,15 @@ async function showTab(key) {
       startQuiz(qs); body.scrollTop = 0; return;
     }
   }
-  const modeBar = key === 'questoes.md' ? `<div class="quiz">${quizHeader()}</div>` : '';
+  if (key === 'flashcards.md' && flashMode) {
+    const cards = parseCards(txt);
+    if (cards.length) {
+      body.innerHTML = renderTabs(availTabs) + `<div class="fc"><div class="fc-top"><span id="fcCount"></span><span class="quiz-mode">
+        <button class="active" onclick="setFlashMode(true)">Study mode</button><button onclick="setFlashMode(false)">Reading mode</button></span></div><div id="fcBody"></div></div>`;
+      startDeck(cards, true); body.scrollTop = 0; return;
+    }
+  }
+  const modeBar = key === 'flashcards.md' ? `<div class="fc"><div class="fc-top"><span></span><span class="quiz-mode"><button onclick="setFlashMode(true)">Study mode</button><button class="active" onclick="setFlashMode(false)">Reading mode</button></span></div></div>` : (key === 'questoes.md' ? `<div class="quiz">${quizHeader()}</div>` : '');
   // Strip a leading BOM and render markdown (raw <details> blocks pass through).
   body.innerHTML = renderTabs(availTabs) + modeBar + banner + `<div class="md-content">${marked.parse(txt.replace(/^\uFEFF/, ''))}</div>`;
   body.scrollTop = 0;
