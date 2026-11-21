@@ -438,11 +438,12 @@
   .qbtn { font-family:'Space Mono',monospace; font-size:12px; padding:9px 18px; border-radius:5px; cursor:pointer; border:1px solid var(--ct-accent); background:var(--ct-accent); color:#fff; }
   .qbtn.secondary { background:transparent; color:var(--ct-accent); }
   .qbtn:disabled { opacity:.4; cursor:not-allowed; }
-  .quiz-feedback { margin-top:22px; padding:16px 20px; border-radius:8px; font-size:14.5px; line-height:1.7; }
+  .quiz-feedback { color:var(--ct-text); margin-top:22px; padding:16px 20px; border-radius:8px; font-size:14.5px; line-height:1.7; }
   .quiz-feedback.ok { background:#e9f6ee; border:1px solid #a8dbb9; }
   .quiz-feedback.no { background:#fcebe9; border:1px solid #f0b6b0; }
   .quiz-feedback .verdict { font-weight:700; margin-bottom:8px; }
-  .quiz-feedback p { margin-bottom:10px; }
+  .quiz-feedback p { margin-bottom:10px; color:var(--ct-text); }
+  .quiz-feedback strong { color:#111; }
   .quiz-result { text-align:center; padding:30px 10px; }
   .quiz-result .score { font-family:'Syne',sans-serif; font-size:56px; font-weight:800; color:var(--ct-accent); }
   .quiz-result .sub { color:var(--ct-muted); margin:6px 0 24px; }
@@ -742,7 +743,7 @@ function parseQuiz(txt) {
     if (opts.length < 2 || !am) continue;
     const correct = am[1].toUpperCase().match(/[A-E]/g);
     let expl = details.replace(/<summary>[\s\S]*?<\/summary>/, '')
-      .replace(/^\s*\*{0,2}\s*(?:Correct answer|Answer)\W{0,6}[A-E][^\n]*\n?/im, '').trim();
+      .replace(/^[^\w\n]*\*{0,2}\s*(?:Correct answer|Answer)\W{0,6}[A-E][^\n]*\n?/im, '').trim();
     qs.push({ title, stem: stem.join('\n\n'), opts, correct, expl });
   }
   return qs;
@@ -797,7 +798,21 @@ function renderQuiz() {
   let feedback = '';
   if (a.checked) {
     const ok = isRight(quiz.idx);
-    feedback = `<div class="quiz-feedback ${ok?'ok':'no'}"><div class="verdict">${ok ? '✓ Correct' : '✗ Incorrect — correct answer: ' + q.correct.join(', ')}</div>${q.expl ? marked.parse(q.expl) : ''}</div>`;
+    let yours = '', expl = q.expl;
+    // Split the explanation into the general part and per-option "Why option X is wrong" notes.
+    const segs = q.expl.split(/(?=\*\*Why (?:option|alternative) [A-E] is wrong:?\*\*)/);
+    const whyRe = /^\*\*Why (?:option|alternative) ([A-E]) is wrong/;
+    const hasWhy = segs.some(s => whyRe.test(s));
+    if (hasWhy) {
+      // Show the general explanation plus only the notes for the option(s) you picked.
+      expl = segs.filter(s => { const m = s.match(whyRe); return !m || (!ok && a.picked.includes(m[1])); }).join('').trim();
+    }
+    if (!ok && a.picked.length) {
+      const picked = a.picked.map(l => `<strong>${l}</strong>: ${marked.parseInline(q.opts.find(o => o.letter === l).text)}`).join('<br>');
+      const covered = a.picked.some(l => new RegExp('(?:option|alternative)\\s+' + l + '\\b', 'i').test(expl));
+      yours = `<p>You chose ${picked}${covered ? '' : '<br><em>No specific explanation is available for your choice; the notes below cover the correct answer.</em>'}</p>`;
+    }
+    feedback = `<div class="quiz-feedback ${ok?'ok':'no'}"><div class="verdict">${ok ? '✓ Correct' : '✗ Incorrect — correct answer: ' + q.correct.join(', ')}</div>${yours}${expl ? marked.parse(expl) : ''}</div>`;
   }
   const last = quiz.idx === total - 1;
   const body = document.getElementById('quizBody');

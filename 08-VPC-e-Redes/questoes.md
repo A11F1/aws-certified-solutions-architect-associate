@@ -18,7 +18,13 @@ D) Ignore an explicit security, availability, or cost requirement.
 Option B covers the technical goal of VPC with the best balance between requirement, risk, and operations.
 
 **Why option A is wrong:**
-It does not meet the main requirement with the same architectural consistency.
+A generic answer does not take subnets into account, so it misses the trade-off the question is testing.
+
+**Why option C is wrong:**
+Extra components add cost and operational complexity without addressing any requirement stated in the question. On the exam, the best answer is the simplest design that meets the requirement.
+
+**Why option D is wrong:**
+The question states this requirement explicitly, so an option that ignores it fails the scenario no matter what else it offers.
 
 </details>
 
@@ -40,7 +46,13 @@ D) Ignore an explicit security, availability, or cost requirement.
 Option B covers the technical goal of VPC with the best balance between requirement, risk, and operations.
 
 **Why option A is wrong:**
-It does not meet the main requirement with the same architectural consistency.
+Manual handling is slow, error-prone, and does not scale. Combining automation with observability is what actually reduces operational risk.
+
+**Why option C is wrong:**
+Extra components add cost and operational complexity without addressing any requirement stated in the question. On the exam, the best answer is the simplest design that meets the requirement.
+
+**Why option D is wrong:**
+The question states this requirement explicitly, so an option that ignores it fails the scenario no matter what else it offers.
 
 </details>
 
@@ -62,7 +74,13 @@ D) Ignore an explicit security, availability, or cost requirement.
 Option B covers the technical goal of VPC with the best balance between requirement, risk, and operations.
 
 **Why option A is wrong:**
-It does not meet the main requirement with the same architectural consistency.
+Cost is only one constraint. The cheapest option can break availability, performance, or security requirements, so it must be validated against the scenario first.
+
+**Why option C is wrong:**
+Extra components add cost and operational complexity without addressing any requirement stated in the question. On the exam, the best answer is the simplest design that meets the requirement.
+
+**Why option D is wrong:**
+The question states this requirement explicitly, so an option that ignores it fails the scenario no matter what else it offers.
 
 </details>
 
@@ -83,7 +101,13 @@ D) Ignore an explicit security, availability, or cost requirement.
 Option B covers the technical goal of VPC with the best balance between requirement, risk, and operations.
 
 **Why option A is wrong:**
-It does not meet the main requirement with the same architectural consistency.
+This is the pattern that is usually correct on the exam. The question asks which alternative tends to be incorrect, so this is the opposite of what is being asked.
+
+**Why option C is wrong:**
+Extra components add cost and operational complexity without addressing any requirement stated in the question. On the exam, the best answer is the simplest design that meets the requirement.
+
+**Why option D is wrong:**
+The question states this requirement explicitly, so an option that ignores it fails the scenario no matter what else it offers.
 
 </details>
 
@@ -105,7 +129,13 @@ D) Ignore an explicit security, availability, or cost requirement.
 Option B covers the technical goal of VPC with the best balance between requirement, risk, and operations.
 
 **Why option A is wrong:**
-It does not meet the main requirement with the same architectural consistency.
+Definitions alone do not build the judgment needed to choose between two plausible options. Scenario practice with trade-off explanations does.
+
+**Why option C is wrong:**
+Extra components add cost and operational complexity without addressing any requirement stated in the question. On the exam, the best answer is the simplest design that meets the requirement.
+
+**Why option D is wrong:**
+The question states this requirement explicitly, so an option that ignores it fails the scenario no matter what else it offers.
 
 </details>
 
