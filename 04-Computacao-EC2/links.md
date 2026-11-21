@@ -1,30 +1,30 @@
-﻿# Links Recomendados
+﻿# Recommended Links
 
-## Referencias oficiais AWS
+## Official AWS References
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html
 - https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html
 - https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html
 
-## Por que estes links importam
-- Documentacao oficial reduz ambiguidade de comportamento de servico em prova.
-- Guias de boas praticas ajudam a entender trade-off, nao apenas configuracao.
-- Whitepapers e paginas de certificacao alinham terminologia e expectativa do exame.
+## Why These Links Matter
+- Official documentation reduces ambiguity about service behavior on the exam.
+- Best-practice guides help you understand trade-offs, not just configuration.
+- Whitepapers and certification pages align terminology and exam expectations.
 
-## Ordem sugerida de leitura
-1. Visao geral do servico.
-2. Limites, seguranca e custos.
-3. Boas praticas e padroes de arquitetura.
+## Suggested Reading Order
+1. Service overview.
+2. Limits, security, and costs.
+3. Best practices and architecture patterns.
 ---
 
-## ☁️ Acompanhe a CloudStudy
+## ☁️ Follow CloudStudy
 
-Estamos construindo uma plataforma para ajudar brasileiros a estudarem AWS de forma mais prática, organizada e acessível.
+We are building a platform to help Brazilians study AWS in a more practical, organized, and accessible way.
 
-Siga a CloudStudy para acompanhar novos materiais, atualizações e conteúdos sobre certificações AWS:
+Follow CloudStudy to keep up with new materials, updates, and content about AWS certifications:
 
 - Instagram: https://www.instagram.com/cloudstudy.ai/
 - LinkedIn: https://www.linkedin.com/company/cloudstudy-ai/
 
 ---
 
-> Para transformar esta base de arquitetura em pratica com pipelines, dados e analytics, voce tambem pode seguir a trilha complementar: [Engenharia de Dados na AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
+> To turn this architecture foundation into practice with pipelines, data, and analytics, you can also follow the complementary track: [Data Engineering on AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).

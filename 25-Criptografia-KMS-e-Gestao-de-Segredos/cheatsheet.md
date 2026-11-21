@@ -1,41 +1,41 @@
-﻿# Guia Rapido
+﻿# Quick Guide
 
-## Tabela de decisao
+## Decision Table
 
-| Sinal do enunciado | Quando usar | Quando evitar | Armadilha de prova |
+| Question signal | When to use | When to avoid | Exam trap |
 |---|---|---|---|
-| Baixa operacao manual | Servico gerenciado com automacao nativa | Solucao autogerenciada sem necessidade | Confundir controle total com melhor custo total |
-| Pico imprevisivel | Escala horizontal e desacoplamento | Capacidade fixa e ajuste manual | Dimensionar para media e falhar no pico |
-| Requisito de seguranca forte | Menor privilegio + criptografia + auditoria | Permissao ampla por conveniencia | Achar que criptografia sozinha resolve governanca |
-| Custo como restricao explicita | Escolha por perfil de consumo e acesso | Classe unica para todo dado | Reduzir custo sem validar impacto funcional |
+| Low manual operation | Managed service with native automation | Self-managed solution without a need | Confusing full control with the best total cost |
+| Unpredictable spike | Horizontal scaling and decoupling | Fixed capacity and manual adjustment | Sizing for the average and failing at the peak |
+| Strong security requirement | Least privilege + encryption + auditing | Broad permission for convenience | Thinking encryption alone solves governance |
+| Cost as an explicit constraint | Choice based on consumption and access profile | A single class for all data | Cutting cost without validating functional impact |
 
-## Sinais de servico
+## Service Signals
 
-- **KMS**: priorize quando o cenario precisa de integracao nativa e menor carga operacional.
-- **Secrets Manager**: use quando houver necessidade de elasticidade controlada e comportamento previsivel em pico.
+- **KMS**: prioritize when the scenario needs native integration and a lower operational load.
+- **Secrets Manager**: use when you need controlled elasticity and predictable behavior at peak.
 
-## Quando usar este modulo na revisao
+## When to Use This Module in Review
 
-- Antes de simulados de arquitetura com foco em trade-offs.
-- Quando houver erro recorrente de escolha entre duas alternativas parecidas.
-- Na reta final para calibrar criterio de eliminacao de opcoes.
+- Before architecture practice exams focused on trade-offs.
+- When you keep making the same mistake choosing between two similar alternatives.
+- In the final stretch to calibrate your criteria for eliminating options.
 
-## Armadilhas recorrentes
+## Recurring Pitfalls
 
-- Resolver disponibilidade com recurso de performance.
-- Trocar simplicidade por arquitetura superdimensionada.
-- Ignorar observabilidade ao definir desenho final.
+- Solving availability with a performance feature.
+- Trading simplicity for an oversized architecture.
+- Ignoring observability when defining the final design.
 ---
 
-## ☁️ Acompanhe a CloudStudy
+## ☁️ Follow CloudStudy
 
-Estamos construindo uma plataforma para ajudar brasileiros a estudarem AWS de forma mais prática, organizada e acessível.
+We are building a platform to help Brazilians study AWS in a more practical, organized, and accessible way.
 
-Siga a CloudStudy para acompanhar novos materiais, atualizações e conteúdos sobre certificações AWS:
+Follow CloudStudy to keep up with new materials, updates, and content about AWS certifications:
 
 - Instagram: https://www.instagram.com/cloudstudy.ai/
 - LinkedIn: https://www.linkedin.com/company/cloudstudy-ai/
 
 ---
 
-> Este modulo tambem conversa com projetos de dados na nuvem; para praticar esse lado, veja a trilha complementar: [Engenharia de Dados na AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
+> This module also connects with cloud data projects; to practice that side, see the complementary track: [Data Engineering on AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).

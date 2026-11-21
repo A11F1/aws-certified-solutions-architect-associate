@@ -1,74 +1,74 @@
-# Questões de Revisão
+# Review Questions
 
-## Questão 1
+## Question 1
 
-Uma aplicação web precisa continuar disponível durante falha de uma zona de disponibilidade. O tráfego deve ser distribuído automaticamente entre instâncias saudáveis. Qual abordagem é mais aderente?
+A web application must remain available during the failure of an Availability Zone. Traffic must be distributed automatically across healthy instances. Which approach fits best?
 
-A) Uma instância EC2 única com snapshot diário.
-B) Auto Scaling Group em múltiplas AZs atrás de um Application Load Balancer.
-C) Uma instância EC2 maior em uma subnet pública.
-D) Backup manual da AMI antes de cada deploy.
+A) A single EC2 instance with a daily snapshot.
+B) An Auto Scaling group across multiple AZs behind an Application Load Balancer.
+C) A larger EC2 instance in a public subnet.
+D) Manual AMI backup before each deploy.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-✅ **Resposta correta:** B
+✅ **Correct answer:** B
 
-**Explicação:**
-ASG multi-AZ com ALB distribui tráfego para destinos saudáveis e mantém capacidade mesmo com falha em uma AZ.
+**Explanation:**
+A multi-AZ ASG with an ALB distributes traffic to healthy targets and maintains capacity even if one AZ fails.
 
-**Por que a alternativa A está errada:**
-Snapshot ajuda recuperação, mas não entrega alta disponibilidade durante a falha.
+**Why option A is wrong:**
+A snapshot helps with recovery but does not deliver high availability during the failure.
 
 </details>
 
-## Questão 2
+## Question 2
 
-Uma empresa quer reduzir custo de acesso ao S3 a partir de workloads privados em uma VPC, sem expor tráfego à internet. Qual escolha é mais indicada?
+A company wants to reduce the cost of accessing S3 from private workloads in a VPC without exposing traffic to the internet. Which choice is most appropriate?
 
-A) NAT Gateway para todo acesso ao S3.
-B) Internet Gateway associado à subnet privada.
-C) VPC Gateway Endpoint para S3.
-D) Elastic IP em cada instância privada.
+A) A NAT Gateway for all S3 access.
+B) An Internet Gateway associated with the private subnet.
+C) A VPC Gateway Endpoint for S3.
+D) An Elastic IP on each private instance.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-✅ **Resposta correta:** C
+✅ **Correct answer:** C
 
-**Explicação:**
-Gateway Endpoint para S3 mantém o tráfego na rede AWS e reduz dependência de NAT Gateway para esse acesso.
+**Explanation:**
+A Gateway Endpoint for S3 keeps traffic on the AWS network and reduces dependence on a NAT Gateway for this access.
 
-**Por que a alternativa A está errada:**
-Funciona para saída, mas adiciona custo e não é a opção mais direta para S3 privado.
+**Why option A is wrong:**
+It works for outbound traffic, but it adds cost and is not the most direct option for private S3 access.
 
 </details>
 
-## Questão 3
+## Question 3
 
-Um banco relacional precisa de failover automático com mínima interrupção. O objetivo principal não é escalar leitura. Qual recurso atende melhor?
+A relational database needs automatic failover with minimal interruption. The main goal is not to scale reads. Which feature fits best?
 
 A) RDS Multi-AZ.
-B) Read Replica em outra região.
-C) Exportação para S3 a cada hora.
-D) EC2 com banco instalado manualmente.
+B) A Read Replica in another Region.
+C) Hourly export to S3.
+D) EC2 with a manually installed database.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-✅ **Resposta correta:** A
+✅ **Correct answer:** A
 
-**Explicação:**
-RDS Multi-AZ oferece alta disponibilidade com failover gerenciado para o banco principal.
+**Explanation:**
+RDS Multi-AZ provides high availability with managed failover for the primary database.
 
-**Por que a alternativa B está errada:**
-Read Replica ajuda leitura e DR, mas não substitui Multi-AZ para failover síncrono gerenciado no mesmo escopo.
+**Why option B is wrong:**
+A Read Replica helps with reads and DR, but it does not replace Multi-AZ for managed synchronous failover within the same scope.
 
 </details>
 
-## Questão 4
+## Question 4
 
-Uma API recebe picos imprevisíveis e precisa desacoplar produtores e consumidores, aceitando processamento assíncrono. Qual serviço reduz melhor o risco operacional?
+An API receives unpredictable spikes and needs to decouple producers and consumers, accepting asynchronous processing. Which service best reduces operational risk?
 
 A) Amazon SQS.
 B) Amazon EFS.
@@ -76,50 +76,50 @@ C) AWS WAF.
 D) AWS Direct Connect.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-✅ **Resposta correta:** A
+✅ **Correct answer:** A
 
-**Explicação:**
-SQS absorve picos, desacopla componentes e permite processamento assíncrono por consumidores em ritmos diferentes.
+**Explanation:**
+SQS absorbs spikes, decouples components, and allows asynchronous processing by consumers at different paces.
 
-**Por que a alternativa B está errada:**
-EFS é armazenamento de arquivos compartilhado, não uma fila de desacoplamento.
+**Why option B is wrong:**
+EFS is shared file storage, not a decoupling queue.
 
 </details>
 
-## Questão 5
+## Question 5
 
-Durante a revisão final, um estudante erra questões de IAM porque escolhe permissões amplas. Qual prática corrige melhor esse padrão?
+During the final review, a student gets IAM questions wrong by choosing broad permissions. Which practice best corrects this pattern?
 
-A) Usar políticas administradas com permissões totais para evitar bloqueios.
-B) Revisar menor privilégio, escopo de recursos e condições nas políticas.
-C) Ignorar IAM e focar apenas em redes.
-D) Decorar nomes de serviços sem analisar ações permitidas.
+A) Use managed policies with full permissions to avoid blocks.
+B) Review least privilege, resource scope, and conditions in policies.
+C) Ignore IAM and focus only on networking.
+D) Memorize service names without analyzing allowed actions.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-✅ **Resposta correta:** B
+✅ **Correct answer:** B
 
-**Explicação:**
-Questões de segurança no SAA-C03 frequentemente cobram menor privilégio, escopo correto e controle explícito de acesso.
+**Explanation:**
+Security questions on the SAA-C03 frequently test least privilege, correct scope, and explicit access control.
 
-**Por que a alternativa A está errada:**
-Permissões amplas aumentam risco e normalmente contradizem requisitos de segurança da prova.
+**Why option A is wrong:**
+Broad permissions increase risk and usually contradict the exam's security requirements.
 
 </details>
 ---
 
-## ☁️ Acompanhe a CloudStudy
+## ☁️ Follow CloudStudy
 
-Estamos construindo uma plataforma para ajudar brasileiros a estudarem AWS de forma mais prática, organizada e acessível.
+We are building a platform to help Brazilians study AWS in a more practical, organized, and accessible way.
 
-Siga a CloudStudy para acompanhar novos materiais, atualizações e conteúdos sobre certificações AWS:
+Follow CloudStudy to keep up with new materials, updates, and content about AWS certifications:
 
 - Instagram: https://www.instagram.com/cloudstudy.ai/
 - LinkedIn: https://www.linkedin.com/company/cloudstudy-ai/
 
 ---
 
-> Quando quiser levar este tema para cenarios de dados, lakehouse e projetos hands-on, use como proximo passo: [Engenharia de Dados na AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
+> When you want to take this topic into data, lakehouse, and hands-on project scenarios, use as your next step: [Data Engineering on AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).

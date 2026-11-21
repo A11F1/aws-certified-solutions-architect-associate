@@ -1,23 +1,23 @@
-﻿# Politica de Seguranca
+﻿# Security Policy
 
-## Versao suportada
+## Supported version
 
-A referencia oficial deste projeto e sempre a branch `main` mais recente.
+The official reference for this project is always the latest `main` branch.
 
-## Como reportar vulnerabilidade
+## How to report a vulnerability
 
-1. Nao abra issue publica para vulnerabilidade.
-2. Envie detalhes para `analyticsdev.thiago@gmail.com`.
-3. Inclua impacto, passos de reproducao e possivel mitigacao.
+1. Do not open a public issue for a vulnerability.
+2. Send details to `analyticsdev.thiago@gmail.com`.
+3. Include impact, reproduction steps, and possible mitigation.
 
-## Janela de resposta
+## Response window
 
-- Confirmacao de recebimento: ate 48 horas.
-- Retorno inicial com plano de tratamento: ate 7 dias.
+- Acknowledgment of receipt: within 48 hours.
+- Initial reply with a remediation plan: within 7 days.
 
-Obrigado por reportar de forma responsavel.
+Thank you for reporting responsibly.
 
 ---
 
-## Estudos complementares
+## Complementary studies
 

@@ -1,16 +1,16 @@
 ﻿# Changelog
 
-## Atualizacao editorial
+## Editorial update
 
-- Estrutura ampla de modulos e trilhas mantida.
-- Conteudo revisado para leitura rapida e objetiva.
-- Materiais de apoio padronizados em formato curto.
-- Linguagem publica consolidada em PT-BR.
+- Broad structure of modules and tracks maintained.
+- Content revised for quick, objective reading.
+- Supporting materials standardized in a short format.
+- Public language consolidated in English.
 
 ---
 
-## Trilhas relacionadas
+## Related tracks
 
-- Cloud Practitioner (fundamentos): https://github.com/Thiago-code-lab/aws-certified-cloud-practitioner-brasil
-- AI Practitioner (IA + AWS): https://github.com/Thiago-code-lab/aws-certified-ai-practitioner-brasil
+- Cloud Practitioner (fundamentals): https://github.com/Thiago-code-lab/aws-certified-cloud-practitioner-brasil
+- AI Practitioner (AI + AWS): https://github.com/Thiago-code-lab/aws-certified-ai-practitioner-brasil
 

@@ -1,44 +1,44 @@
-﻿# Guia Rapido
+﻿# Quick Guide
 
-## Tabela de decisao
+## Decision Table
 
-| Sinal do enunciado | Melhor escolha | Evite | Armadilha comum |
+| Question signal | Best choice | Avoid | Common trap |
 |---|---|---|---|
-| “Acesso minimo necessario” | IAM policy granular + role | User com permissao ampla | Confundir agilidade com permissao total |
-| “Pico imprevisivel” | ASG + ALB + desacoplamento | Instancia unica vertical | Dimensionar para media e colapsar no pico |
-| “Sem internet publica” | VPC Endpoint/PrivateLink | NAT para trafego interno AWS | Pagar mais e ampliar superficie de risco |
-| “RPO baixo / RTO curto” | Multi-AZ ou warm standby conforme meta | Backup eventual sem teste | Escolher DR barato demais para meta agressiva |
-| “Custo com uso previsivel” | Savings Plans/RI + rightsizing | On-Demand sem analise | Ignorar compromisso em carga estavel |
+| “Minimum necessary access” | Granular IAM policy + role | User with broad permission | Confusing agility with full permission |
+| “Unpredictable spike” | ASG + ALB + decoupling | Single vertically scaled instance | Sizing for the average and collapsing at the peak |
+| “No public internet” | VPC Endpoint/PrivateLink | NAT for internal AWS traffic | Paying more and widening the risk surface |
+| “Low RPO / short RTO” | Multi-AZ or warm standby depending on the target | Occasional backup without testing | Choosing DR that is too cheap for an aggressive target |
+| “Cost with predictable usage” | Savings Plans/RI + rightsizing | On-Demand without analysis | Ignoring commitment for a steady workload |
 
-## Checklist de eliminacao rapida
+## Quick elimination checklist
 
-1. A opcao viola requisito explicito de seguranca?
-2. A opcao adiciona componentes sem necessidade?
-3. A opcao aumenta operacao manual sem ganho tecnico?
-4. Existe servico gerenciado que resolve com menor risco?
+1. Does the option violate an explicit security requirement?
+2. Does the option add unnecessary components?
+3. Does the option increase manual operation without technical gain?
+4. Is there a managed service that solves it with less risk?
 
-## Trincas que mais confundem no SAA-C03
+## Triplets that cause the most confusion on the SAA-C03
 
-- **SG vs NACL**: SG e stateful na ENI; NACL e stateless na subnet.
-- **Multi-AZ vs Read Replica**: Multi-AZ = disponibilidade; replica = escala de leitura.
-- **SQS vs SNS vs EventBridge**: fila duravel, pub/sub fan-out, roteamento por evento.
+- **SG vs NACL**: SG is stateful at the ENI; NACL is stateless at the subnet.
+- **Multi-AZ vs Read Replica**: Multi-AZ = availability; replica = read scaling.
+- **SQS vs SNS vs EventBridge**: durable queue, pub/sub fan-out, event-based routing.
 
-## Uso na reta final
+## Use in the final stretch
 
-- Revisar antes de cada mini-simulado.
-- Marcar em qual linha da tabela voce errou a decisao.
-- Atualizar o caderno de erros com a regra correta.
+- Review before each mini practice exam.
+- Mark which row of the table you got the decision wrong on.
+- Update the error notebook with the correct rule.
 ---
 
-## ☁️ Acompanhe a CloudStudy
+## ☁️ Follow CloudStudy
 
-Estamos construindo uma plataforma para ajudar brasileiros a estudarem AWS de forma mais prática, organizada e acessível.
+We are building a platform to help Brazilians study AWS in a more practical, organized, and accessible way.
 
-Siga a CloudStudy para acompanhar novos materiais, atualizações e conteúdos sobre certificações AWS:
+Follow CloudStudy to keep up with new materials, updates, and content about AWS certifications:
 
 - Instagram: https://www.instagram.com/cloudstudy.ai/
 - LinkedIn: https://www.linkedin.com/company/cloudstudy-ai/
 
 ---
 
-> Quando quiser levar este tema para cenarios de dados, lakehouse e projetos hands-on, use como proximo passo: [Engenharia de Dados na AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
+> When you want to take this topic into data, lakehouse, and hands-on project scenarios, use as your next step: [Data Engineering on AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).

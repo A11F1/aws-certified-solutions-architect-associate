@@ -1,47 +1,47 @@
-﻿# Reta Final SAA-C03 (14 dias)
+﻿# SAA-C03 Final Stretch (14 days)
 
-## Bloco 1 (Dias 1-4): fundamentos de maior peso
+## Block 1 (Days 1-4): highest-weight fundamentals
 
-- Seguranca: IAM, KMS, trilha de auditoria.
-- Resiliencia: Multi-AZ, desacoplamento, DR.
-- Redes: VPC, endpoints, DNS e distribuicao.
+- Security: IAM, KMS, audit trail.
+- Resilience: Multi-AZ, decoupling, DR.
+- Networking: VPC, endpoints, DNS, and distribution.
 
-## Bloco 2 (Dias 5-9): desempenho e custo
+## Block 2 (Days 5-9): performance and cost
 
-- Compute, banco e cache por perfil de carga.
-- Serverless e mensageria para elasticidade.
-- Otimizacao de armazenamento e transferencia.
+- Compute, database, and cache by workload profile.
+- Serverless and messaging for elasticity.
+- Storage and transfer optimization.
 
-## Bloco 3 (Dias 10-14): prova dirigida
+## Block 3 (Days 10-14): targeted exam practice
 
-- 2 simulados completos em ambiente sem consulta.
-- Revisao do caderno de erros por prioridade.
-- Refaco de mini-simulados por dominio critico.
+- 2 full practice exams in a no-reference environment.
+- Review the error notebook by priority.
+- Redo mini practice exams for critical domains.
 
-## Regra de decisao rapida
+## Quick decision rule
 
-1. Ache o requisito dominante.
-2. Elimine opcoes que quebram esse requisito.
-3. Compare custo operacional entre as finalistas.
-4. Escolha a solucao mais simples que atende o cenario.
+1. Find the dominant requirement.
+2. Eliminate options that break that requirement.
+3. Compare operating cost between the finalists.
+4. Choose the simplest solution that meets the scenario.
 
-## Fechamento na vespera
+## Wrap-up the day before
 
-- Revisao curta de flashcards e traps.
-- Nada de topico novo pesado.
-- Foco em sono, ritmo e leitura atenta de enunciado.
+- Short review of flashcards and traps.
+- No heavy new topics.
+- Focus on sleep, pacing, and careful reading of the question stem.
 
 ---
 
-## ☁️ Acompanhe a CloudStudy
+## ☁️ Follow CloudStudy
 
-Estamos construindo uma plataforma para ajudar brasileiros a estudarem AWS de forma mais prática, organizada e acessível.
+We are building a platform to help Brazilians study AWS in a more practical, organized, and accessible way.
 
-Siga a CloudStudy para acompanhar novos materiais, atualizações e conteúdos sobre certificações AWS:
+Follow CloudStudy to keep up with new materials, updates, and content about AWS certifications:
 
 - Instagram: https://www.instagram.com/cloudstudy.ai/
 - LinkedIn: https://www.linkedin.com/company/cloudstudy-ai/
 
 ---
 
-> Se o objetivo for conectar arquitetura AWS com ingestao, processamento e analytics, a trilha complementar e: [Engenharia de Dados na AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
+> If your goal is to connect AWS architecture with ingestion, processing, and analytics, the complementary track is: [Data Engineering on AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).

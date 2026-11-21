@@ -1,126 +1,126 @@
-# Questoes de Revisao
+# Review Questions
 
-## Questão 1
+## Question 1
 
-Um cenario exige decisao correta em Containers. Qual abordagem e mais aderente?
+A scenario requires the right decision on containers. Which approach fits best?
 
-A) Aplicar solucao generica sem considerar ECS.
-B) Usar ECS com configuracao orientada ao requisito e operacao enxuta.
-C) Adicionar componentes sem necessidade do enunciado.
-D) Ignorar requisito explicito de seguranca, disponibilidade ou custo.
+A) Apply a generic solution without considering ECS.
+B) Use ECS with configuration driven by the requirement and lean operations.
+C) Add components the question does not call for.
+D) Ignore an explicit security, availability, or cost requirement.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-â✅ **Resposta correta:** B
+✅ **Correct answer:** B
 
-**Explicação:**
-A alternativa B cobre o objetivo tecnico de containers com melhor equilibrio entre requisito, risco e operacao.
+**Explanation:**
+Option B covers the technical goal of containers with the best balance between requirement, risk, and operations.
 
-**Por que a alternativa A está errada:**
-Ela nao atende o requisito principal com a mesma consistencia arquitetural.
+**Why option A is wrong:**
+It does not meet the main requirement with the same architectural consistency.
 
 </details>
 
-## Questão 2
+## Question 2
 
-Qual escolha reduz risco operacional neste dominio?
+Which choice reduces operational risk in this domain?
 
-A) Resolver tudo manualmente durante incidente.
-B) Combinar EKS com observabilidade e automacao.
-C) Adicionar componentes sem necessidade do enunciado.
-D) Ignorar requisito explicito de seguranca, disponibilidade ou custo.
+A) Handle everything manually during an incident.
+B) Combine EKS with observability and automation.
+C) Add components the question does not call for.
+D) Ignore an explicit security, availability, or cost requirement.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-â✅ **Resposta correta:** B
+✅ **Correct answer:** B
 
-**Explicação:**
-A alternativa B cobre o objetivo tecnico de containers com melhor equilibrio entre requisito, risco e operacao.
+**Explanation:**
+Option B covers the technical goal of containers with the best balance between requirement, risk, and operations.
 
-**Por que a alternativa A está errada:**
-Ela nao atende o requisito principal com a mesma consistencia arquitetural.
+**Why option A is wrong:**
+It does not meet the main requirement with the same architectural consistency.
 
 </details>
 
-## Questão 3
+## Question 3
 
-Para manter custo sob controle sem perder qualidade tecnica, o que fazer?
+What should you do to keep cost under control without losing technical quality?
 
-A) Escolher sempre a opcao mais barata sem validar requisito.
-B) Dimensionar com base no uso real e aproveitar Fargate quando fizer sentido.
-C) Adicionar componentes sem necessidade do enunciado.
-D) Ignorar requisito explicito de seguranca, disponibilidade ou custo.
+A) Always pick the cheapest option without validating the requirement.
+B) Size based on actual usage and take advantage of Fargate when it makes sense.
+C) Add components the question does not call for.
+D) Ignore an explicit security, availability, or cost requirement.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-â✅ **Resposta correta:** B
+✅ **Correct answer:** B
 
-**Explicação:**
-A alternativa B cobre o objetivo tecnico de containers com melhor equilibrio entre requisito, risco e operacao.
+**Explanation:**
+Option B covers the technical goal of containers with the best balance between requirement, risk, and operations.
 
-**Por que a alternativa A está errada:**
-Ela nao atende o requisito principal com a mesma consistencia arquitetural.
+**Why option A is wrong:**
+It does not meet the main requirement with the same architectural consistency.
 
 </details>
 
-## Questão 4
+## Question 4
 
-Qual alternativa tende a ser incorreta na prova para este tema?
-A) A que atende requisito dominante com menor complexidade.
-B) A que ignora sinais de task definition e dependencias da arquitetura.
-C) Adicionar componentes sem necessidade do enunciado.
-D) Ignorar requisito explicito de seguranca, disponibilidade ou custo.
+Which alternative tends to be incorrect on the exam for this topic?
+A) The one that meets the dominant requirement with the least complexity.
+B) The one that ignores task definition signals and architecture dependencies.
+C) Add components the question does not call for.
+D) Ignore an explicit security, availability, or cost requirement.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-â✅ **Resposta correta:** B
+✅ **Correct answer:** B
 
-**Explicação:**
-A alternativa B cobre o objetivo tecnico de containers com melhor equilibrio entre requisito, risco e operacao.
+**Explanation:**
+Option B covers the technical goal of containers with the best balance between requirement, risk, and operations.
 
-**Por que a alternativa A está errada:**
-Ela nao atende o requisito principal com a mesma consistencia arquitetural.
+**Why option A is wrong:**
+It does not meet the main requirement with the same architectural consistency.
 
 </details>
 
-## Questão 5
+## Question 5
 
-Qual revisao aumenta acerto neste modulo?
+Which review approach improves accuracy in this module?
 
-A) Rever apenas definicoes sem pratica de cenario.
-B) Treinar questoes focadas em task definition e service autoscaling com explicacao de trade-offs.
-C) Adicionar componentes sem necessidade do enunciado.
-D) Ignorar requisito explicito de seguranca, disponibilidade ou custo.
+A) Review only definitions without scenario practice.
+B) Practice questions focused on task definition and service autoscaling with explanations of the trade-offs.
+C) Add components the question does not call for.
+D) Ignore an explicit security, availability, or cost requirement.
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-â✅ **Resposta correta:** B
+✅ **Correct answer:** B
 
-**Explicação:**
-A alternativa B cobre o objetivo tecnico de containers com melhor equilibrio entre requisito, risco e operacao.
+**Explanation:**
+Option B covers the technical goal of containers with the best balance between requirement, risk, and operations.
 
-**Por que a alternativa A está errada:**
-Ela nao atende o requisito principal com a mesma consistencia arquitetural.
+**Why option A is wrong:**
+It does not meet the main requirement with the same architectural consistency.
 
 </details>
 
 
 ---
 
-## ☁️ Acompanhe a CloudStudy
+## ☁️ Follow CloudStudy
 
-Estamos construindo uma plataforma para ajudar brasileiros a estudarem AWS de forma mais prática, organizada e acessível.
+We are building a platform to help Brazilians study AWS in a more practical, organized, and accessible way.
 
-Siga a CloudStudy para acompanhar novos materiais, atualizações e conteúdos sobre certificações AWS:
+Follow CloudStudy to keep up with new materials, updates, and content about AWS certifications:
 
 - Instagram: https://www.instagram.com/cloudstudy.ai/
 - LinkedIn: https://www.linkedin.com/company/cloudstudy-ai/
 
 ---
 
-> Se o objetivo for conectar arquitetura AWS com ingestao, processamento e analytics, a trilha complementar e: [Engenharia de Dados na AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
+> If your goal is to connect AWS architecture with ingestion, processing, and analytics, the complementary track is: [Data Engineering on AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).

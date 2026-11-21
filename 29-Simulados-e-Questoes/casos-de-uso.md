@@ -1,40 +1,40 @@
-﻿# Casos de Uso
+﻿# Use Cases
 
-## Cenario 1: Pico de acesso em janela curta
+## Scenario 1: Traffic spike in a short window
 
-**Padrao recomendado:** camada gerenciada com escala automatica e desacoplamento.  
-**Motivo:** absorve variacao sem intervencao manual intensa.  
-**Sinal de prova:** termos como “pico imprevisivel”, “manter latencia” e “baixo esforco operacional”.
+**Recommended pattern:** managed tier with automatic scaling and decoupling.  
+**Reason:** absorbs variation without heavy manual intervention.  
+**Exam signal:** terms such as “unpredictable spike”, “keep latency low”, and “low operational effort”.
 
-## Cenario 2: Requisito de auditoria e conformidade
+## Scenario 2: Audit and compliance requirement
 
-**Padrao recomendado:** identidade granular, trilha de auditoria e criptografia fim a fim.  
-**Motivo:** garante rastreabilidade e protecao de dado sensivel.  
-**Sinal de prova:** “compliance”, “registro de acesso”, “dados sensiveis”.
+**Recommended pattern:** granular identity, audit trail, and end-to-end encryption.  
+**Reason:** ensures traceability and protection of sensitive data.  
+**Exam signal:** “compliance”, “access logging”, “sensitive data”.
 
-## Cenario 3: Reducao de custo com mesma experiencia
+## Scenario 3: Cost reduction with the same experience
 
-**Padrao recomendado:** ajustar classe/capacidade pelo perfil real de consumo.  
-**Motivo:** evita overprovisioning e reduz gasto recorrente.  
-**Sinal de prova:** “otimizacao de custo”, “padrao de uso conhecido”, “sem degradar UX”.
+**Recommended pattern:** adjust class/capacity to the real consumption profile.  
+**Reason:** avoids overprovisioning and reduces recurring spend.  
+**Exam signal:** “cost optimization”, “known usage pattern”, “without degrading UX”.
 
-## Cenario 4: Evolucao incremental de arquitetura
+## Scenario 4: Incremental architecture evolution
 
-**Padrao recomendado:** comecar simples, com componentes gerenciados e pontos de extensao claros.  
-**Motivo:** acelera entrega e reduz risco de complexidade prematura.  
-**Sinal de prova:** “entrega rapida”, “crescimento gradual”, “equipe pequena”.
+**Recommended pattern:** start simple, with managed components and clear extension points.  
+**Reason:** speeds up delivery and reduces the risk of premature complexity.  
+**Exam signal:** “fast delivery”, “gradual growth”, “small team”.
 
 ---
 
-## ☁️ Acompanhe a CloudStudy
+## ☁️ Follow CloudStudy
 
-Estamos construindo uma plataforma para ajudar brasileiros a estudarem AWS de forma mais prática, organizada e acessível.
+We are building a platform to help Brazilians study AWS in a more practical, organized, and accessible way.
 
-Siga a CloudStudy para acompanhar novos materiais, atualizações e conteúdos sobre certificações AWS:
+Follow CloudStudy to keep up with new materials, updates, and content about AWS certifications:
 
 - Instagram: https://www.instagram.com/cloudstudy.ai/
 - LinkedIn: https://www.linkedin.com/company/cloudstudy-ai/
 
 ---
 
-> Para transformar esta base de arquitetura em pratica com pipelines, dados e analytics, voce tambem pode seguir a trilha complementar: [Engenharia de Dados na AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
+> To turn this architecture foundation into practice with pipelines, data, and analytics, you can also follow the complementary track: [Data Engineering on AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).

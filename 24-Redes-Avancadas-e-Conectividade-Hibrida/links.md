@@ -1,30 +1,30 @@
-﻿# Links Recomendados
+﻿# Recommended Links
 
-## Referencias oficiais AWS
+## Official AWS References
 - https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html
 - https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html
 - https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html
 
-## Por que estes links importam
-- Documentacao oficial reduz ambiguidade de comportamento de servico em prova.
-- Guias de boas praticas ajudam a entender trade-off, nao apenas configuracao.
-- Whitepapers e paginas de certificacao alinham terminologia e expectativa do exame.
+## Why These Links Matter
+- Official documentation reduces ambiguity about service behavior on the exam.
+- Best-practice guides help you understand trade-offs, not just configuration.
+- Whitepapers and certification pages align terminology and exam expectations.
 
-## Ordem sugerida de leitura
-1. Visao geral do servico.
-2. Limites, seguranca e custos.
-3. Boas praticas e padroes de arquitetura.
+## Suggested Reading Order
+1. Service overview.
+2. Limits, security, and costs.
+3. Best practices and architecture patterns.
 ---
 
-## ☁️ Acompanhe a CloudStudy
+## ☁️ Follow CloudStudy
 
-Estamos construindo uma plataforma para ajudar brasileiros a estudarem AWS de forma mais prática, organizada e acessível.
+We are building a platform to help Brazilians study AWS in a more practical, organized, and accessible way.
 
-Siga a CloudStudy para acompanhar novos materiais, atualizações e conteúdos sobre certificações AWS:
+Follow CloudStudy to keep up with new materials, updates, and content about AWS certifications:
 
 - Instagram: https://www.instagram.com/cloudstudy.ai/
 - LinkedIn: https://www.linkedin.com/company/cloudstudy-ai/
 
 ---
 
-> Se o objetivo for conectar arquitetura AWS com ingestao, processamento e analytics, a trilha complementar e: [Engenharia de Dados na AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
+> If your goal is to connect AWS architecture with ingestion, processing, and analytics, the complementary track is: [Data Engineering on AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).

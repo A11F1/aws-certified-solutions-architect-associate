@@ -1,87 +1,87 @@
-# Flashcards de Revisão
+# Review Flashcards
 
 ## Card 01
 
-**Pergunta:** O que fazer antes de abrir a resposta de uma questão?
+**Question:** What should you do before revealing the answer to a question?
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-**Resposta:**
-Identificar o requisito dominante, eliminar alternativas claramente incompatíveis e só então comparar trade-offs.
+**Answer:**
+Identify the dominant requirement, eliminate clearly incompatible alternatives, and only then compare trade-offs.
 
 </details>
 
 ## Card 02
 
-**Pergunta:** Como usar o caderno de erros sem perder tempo?
+**Question:** How do you use the error notebook without wasting time?
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-**Resposta:**
-Registrar o serviço confundido, o sinal ignorado no enunciado e a regra prática para não repetir o erro.
+**Answer:**
+Record the service you confused, the signal you ignored in the question, and the practical rule to avoid repeating the mistake.
 
 </details>
 
 ## Card 03
 
-**Pergunta:** Qual é o principal sinal de pegadinha em perguntas de custo?
+**Question:** What is the main sign of a trick in cost questions?
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-**Resposta:**
-Escolher a opção mais barata sem validar disponibilidade, latência, retenção mínima ou operação recorrente.
+**Answer:**
+Choosing the cheapest option without validating availability, latency, minimum retention, or recurring operation.
 
 </details>
 
 ## Card 04
 
-**Pergunta:** Quando uma alternativa gerenciada tende a ser melhor?
+**Question:** When does a managed alternative tend to be better?
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-**Resposta:**
-Quando o enunciado pede baixa operação, escalabilidade automática, resiliência gerenciada ou menor esforço de manutenção.
+**Answer:**
+When the question asks for low operations, automatic scaling, managed resilience, or less maintenance effort.
 
 </details>
 
 ## Card 05
 
-**Pergunta:** O que diferencia uma resposta correta de uma resposta apenas possível?
+**Question:** What distinguishes a correct answer from one that is merely possible?
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-**Resposta:**
-A correta atende ao requisito explícito com menor risco operacional e sem componentes desnecessários.
+**Answer:**
+The correct one meets the explicit requirement with the lowest operational risk and no unnecessary components.
 
 </details>
 
 ## Card 06
 
-**Pergunta:** Como revisar por domínio na reta final?
+**Question:** How do you review by domain in the final stretch?
 
 <details>
-<summary><strong>Ver resposta</strong></summary>
+<summary><strong>Show answer</strong></summary>
 
-**Resposta:**
-Agrupe erros por resiliência, performance, segurança e custo, depois refaça apenas os pontos com maior recorrência.
+**Answer:**
+Group mistakes by resilience, performance, security, and cost, then redo only the points that recur most.
 
 </details>
 ---
 
-## ☁️ Acompanhe a CloudStudy
+## ☁️ Follow CloudStudy
 
-Estamos construindo uma plataforma para ajudar brasileiros a estudarem AWS de forma mais prática, organizada e acessível.
+We are building a platform to help Brazilians study AWS in a more practical, organized, and accessible way.
 
-Siga a CloudStudy para acompanhar novos materiais, atualizações e conteúdos sobre certificações AWS:
+Follow CloudStudy to keep up with new materials, updates, and content about AWS certifications:
 
 - Instagram: https://www.instagram.com/cloudstudy.ai/
 - LinkedIn: https://www.linkedin.com/company/cloudstudy-ai/
 
 ---
 
-> Este modulo tambem conversa com projetos de dados na nuvem; para praticar esse lado, veja a trilha complementar: [Engenharia de Dados na AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
+> This module also connects with cloud data projects; to practice that side, see the complementary track: [Data Engineering on AWS](https://www.udemy.com/course/engenharia-de-dados-na-aws-do-zero-aos-projetos-reais/?referralCode=E28670B9116BA68E08A9).
