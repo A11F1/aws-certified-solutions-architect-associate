@@ -170,42 +170,50 @@ In addition to GitHub Pages, the repository includes a single-file study portal 
 - Module 01: exam overview, strategy, weights, and most-tested services
 - Module 02: IAM, KMS, Organizations, Identity Center, and policies
 - Module 03: guided IAM and security lab
+- ★ **Main lab:** [Secure Account Foundation](./32-Weekly-Main-Labs/week-01-secure-account-foundation.md)
 
 ### Week 2
 - Module 04: EC2, EBS, placement groups, and purchase models
 - Module 05: ELB, ASG, health checks, and scalability
+- ★ **Main lab:** [Highly Available Web Tier](./32-Weekly-Main-Labs/week-02-highly-available-web-tier.md)
 
 ### Week 3
 - Module 06: S3, lifecycle, replication, classes, and security
 - Module 07: advanced S3 lab
 - Module 08: VPC, subnets, endpoints, routes, and network security
 - Module 09: VPC and networking lab
+- ★ **Main lab:** [Private Network and Static Site](./32-Weekly-Main-Labs/week-03-private-network-and-static-site.md)
 
 ### Week 4
 - Module 10: databases for architecture (RDS, Aurora, DynamoDB, ElastiCache, Redshift)
 - Module 11: RDS and relational databases lab
 - Module 12: DynamoDB modeling and patterns
 - Module 13: Route 53, CloudFront, OAC, WAF, and Global Accelerator
+- ★ **Main lab:** [Data Tier and Global Delivery](./32-Weekly-Main-Labs/week-04-data-tier-and-global-delivery.md)
 
 ### Week 5
 - Module 14: SQS, SNS, EventBridge, and Step Functions
 - Module 15: SQS/SNS messaging lab
 - Module 16: ECS, EKS, Fargate, ECR, and App Runner
+- ★ **Main lab:** [Event-Driven Order Pipeline](./32-Weekly-Main-Labs/week-05-event-driven-order-pipeline.md)
 
 ### Week 6
 - Module 17: Lambda, API Gateway, authorizers, and serverless observability
 - Module 18: Kinesis, Firehose, Glue, Athena, EMR, and analytics
+- ★ **Main lab:** [Serverless Data Pipeline](./32-Weekly-Main-Labs/week-06-serverless-data-pipeline.md)
 
 ### Week 7
 - Module 19: most-tested managed AI and ML services
 - Module 20: CloudWatch, CloudTrail, Config, and X-Ray
 - Module 21: DMS, MGN, DataSync, Snow Family, and Transfer Family
+- ★ **Main lab:** [Document Intelligence and Observability](./32-Weekly-Main-Labs/week-07-document-intelligence-and-observability.md)
 
 ### Week 8
 - Module 22: disaster recovery, continuity, RTO/RPO, and DR strategies
 - Module 23: AWS Organizations, multi-account governance, and cost optimization
 - Module 24: advanced networking and hybrid connectivity (TGW, DX, VPN, PrivateLink)
 - Module 25: encryption with KMS and secrets management with Secrets Manager/SSM
+- ★ **Main lab:** [Resilient, Governed Workload](./32-Weekly-Main-Labs/week-08-resilient-governed-workload.md)
 
 ### Week 9
 - Module 26: Well-Architected Framework and DR patterns
@@ -213,6 +221,7 @@ In addition to GitHub Pages, the repository includes a single-file study portal 
 - Module 28: end-to-end labs
 - Module 29: practice exams and reviews
 - Module 30 and 31: glossary and review of official links
+- ★ **Main lab:** [Architecture Review Capstone](./32-Weekly-Main-Labs/week-09-architecture-review-capstone.md)
 
 <a id="modules"></a>
 ## 📁 Modules

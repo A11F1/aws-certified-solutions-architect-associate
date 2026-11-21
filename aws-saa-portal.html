@@ -165,6 +165,8 @@
   .mod-num { font-family:'Space Mono',monospace; font-size:10px; color:var(--sb-dim); width:24px; flex-shrink:0; }
   .mod-name { font-size:12px; font-weight:500; color:var(--sb-muted); line-height:1.3; flex:1; transition:color .15s; }
   .mod-item:hover .mod-name, .mod-item.active .mod-name { color:var(--sb-text); }
+  .mod-item.weeklab .mod-num { color:var(--orange); width:24px; }
+  .mod-item.weeklab .mod-name { color:var(--orange); font-weight:600; }
   .mod-badges { display:flex; gap:3px; flex-shrink:0; }
   .mbadge { font-size:8px; padding:1px 4px; border-radius:2px; font-family:'Space Mono',monospace; font-weight:700; }
   .mb-lab { background:rgba(231,76,60,0.2); color:var(--red); }
@@ -604,6 +606,17 @@ const MODULES = [
   { num:'31', name:'Resources and Official Links',                domain:'base',        week:9, file:'31-Recursos-e-Links/README.md',                           cs:false, q:false, lab:false },
 ];
 
+const WEEK_LABS = {
+  1:{ title:'Secure Account Foundation',            file:'week-01-secure-account-foundation.md' },
+  2:{ title:'Highly Available Web Tier',            file:'week-02-highly-available-web-tier.md' },
+  3:{ title:'Private Network and Static Site',      file:'week-03-private-network-and-static-site.md' },
+  4:{ title:'Data Tier and Global Delivery',        file:'week-04-data-tier-and-global-delivery.md' },
+  5:{ title:'Event-Driven Order Pipeline',          file:'week-05-event-driven-order-pipeline.md' },
+  6:{ title:'Serverless Data Pipeline',             file:'week-06-serverless-data-pipeline.md' },
+  7:{ title:'Document Intelligence and Observability', file:'week-07-document-intelligence-and-observability.md' },
+  8:{ title:'Resilient, Governed Workload',         file:'week-08-resilient-governed-workload.md' },
+  9:{ title:'Architecture Review Capstone',         file:'week-09-architecture-review-capstone.md' },
+};
 const DC = { base:'#6b7fa3', security:'#9B59B6', resilient:'#4A9EFF', performance:'#2ECC71', cost:'#FF9900', lab:'#E74C3C' };
 const WL = { 1:'WEEK 01', 2:'WEEK 02', 3:'WEEK 03', 4:'WEEK 04', 5:'WEEK 05', 6:'WEEK 06', 7:'WEEK 07', 8:'WEEK 08', 9:'WEEK 09 · FINAL STRETCH' };
 const DOMAIN_CARDS = [
@@ -683,6 +696,21 @@ function buildSidebar(modules) {
       const r = document.createElement('div'); r.className='week-header-row';
       r.innerHTML = `<span class="week-label">${WL[m.week]}</span><span class="week-prog ${allDone?'done':''}">${p.done}/${p.total}</span>`;
       list.appendChild(r);
+      const wl = WEEK_LABS[m.week];
+      if (wl) {
+        const wm = { num:'W'+m.week, main:true, week:m.week, file:'32-Weekly-Main-Labs/'+wl.file, name:`Week ${m.week} main lab: ${wl.title}` };
+        const wdone = isCompleted(wm.num);
+        const wi = document.createElement('div');
+        wi.className = 'mod-item weeklab' + (wm.num===activeNum?' active':'') + (wdone?' completed':'');
+        wi.onclick = () => loadModule(wm);
+        wi.innerHTML = `
+          <div class="mod-check ${wdone?'checked':''}" onclick="toggleProgress('${wm.num}',event)" title="${wdone?'Uncheck':'Mark as completed'}"></div>
+          <span class="mod-dot" style="background:var(--orange)"></span>
+          <span class="mod-num">★</span>
+          <span class="mod-name">Main lab: ${wl.title}</span>
+          <div class="mod-badges"><span class="mbadge mb-lab">LAB</span></div>`;
+        list.appendChild(wi);
+      }
     }
     const done = isCompleted(m.num);
     const item = document.createElement('div');
@@ -744,6 +772,7 @@ async function fetchText(path) {
 }
 
 function renderTabs(avail) {
+  if (avail.length < 2) return '';
   return `<div class="tab-row">` + avail.map(tb =>
     `<button class="tab-btn ${tb.key===activeTab?'active':''}" onclick="showTab('${tb.key}')">${tb.label}</button>`).join('') + `</div>`;
 }
@@ -1005,6 +1034,10 @@ async function loadModule(mod) {
   updateContentHeader();
   document.getElementById('contentBody').innerHTML = `<div class="loading"><div class="spinner"></div><div class="loading-text">Loading module ${mod.num}…</div></div>`;
   const dir = modDir(mod);
+  if (mod.main) {
+    availTabs = [{ key: own, label: 'Main Lab' }];
+    await showTab(own); return;
+  }
   const found = await Promise.all(TABS.map(async tb => (await fetchText(`${dir}/${tb.key}`)) !== null ? tb : null));
   if (activeNum !== mod.num) return; // user switched modules meanwhile
   availTabs = found.filter(Boolean);
